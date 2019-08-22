@@ -71,6 +71,7 @@ namespace Senai.Filmes.WebApi.Repository
             }
         }
 
+
         public void Alterar(GeneroDomain generoDomain)
         {
             string Query = "UPDATE Generos SET Nome = @Nome WHERE IdGenero = @IdGenero";
@@ -102,7 +103,6 @@ namespace Senai.Filmes.WebApi.Repository
             }
         }
 
-
         public void Deletar(int id)
         {
             string Query = "DELETE FROM Generos WHERE IdGenero = @IdGenero";
@@ -118,5 +118,68 @@ namespace Senai.Filmes.WebApi.Repository
             }
         }
 
+        public List<FilmeDomain> FilmesDeGenero(int id)
+        {
+            string Query = "SELECT F.*, G.Nome FROM Filmes F JOIN Generos G ON F.IdGenero = G.IdGenero WHERE F.IdGenero = @IdGenero";
+
+            using(SqlConnection con = new SqlConnection(StringConexao))
+            {
+                List<FilmeDomain> filmes = new List<FilmeDomain>();
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand(Query, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+                    SqlDataReader sdr = cmd.ExecuteReader();
+
+                    while (sdr.Read())
+                    {
+                        FilmeDomain filme = new FilmeDomain
+                        {
+                            IdFilme = Convert.ToInt32(sdr["IdFilme"]),
+                            Titulo = sdr["Titulo"].ToString(),
+                            Genero = new GeneroDomain
+                            {
+                                IdGenero = Convert.ToInt32(sdr["IdGenero"]),
+                                Nome = sdr["Nome"].ToString()
+                            }
+                        };
+                        filmes.Add(filme);
+                    };
+                    return filmes;
+                }
+
+                
+            }
+
+
+        }
+
+        public List<GeneroDomain> BuscarNome(string nome)
+        {
+            string Query = "SELECT * FROM Generos WHERE Nome LIKE @Nome";
+            List<GeneroDomain> generos = new List<GeneroDomain>();
+
+            using(SqlConnection con = new SqlConnection(StringConexao))
+            {
+                con.Open();
+                using(SqlCommand cmd = new SqlCommand(Query, con))
+                {
+                    cmd.Parameters.AddWithValue("@Nome", "%" + nome + "%");
+                    SqlDataReader sdr = cmd.ExecuteReader();
+
+                    while (sdr.Read())
+                    {
+                        GeneroDomain genero = new GeneroDomain
+                        {
+                            IdGenero = Convert.ToInt32(sdr["IdGenero"]),
+                            Nome = sdr["Nome"].ToString()
+                        };
+                        generos.Add(genero);
+                    }
+                    return generos;
+                }
+
+            }
+        }
     }
 }

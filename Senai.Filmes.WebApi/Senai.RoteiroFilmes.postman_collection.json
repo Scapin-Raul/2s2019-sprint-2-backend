@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "dea174ff-57ba-4e1d-9fdb-20dfed116100",
+		"name": "Senai.RoteiroFilmes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Generos",
+			"item": [
+				{
+					"name": "Generos.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:49568/api/Generos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49568",
+							"path": [
+								"api",
+								"Generos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generos.BucarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:49568/api/Generos/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49568",
+							"path": [
+								"api",
+								"Generos",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generos.Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Drama\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:49568/api/Generos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49568",
+							"path": [
+								"api",
+								"Generos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generos.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Ação\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:49568/api/Generos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49568",
+							"path": [
+								"api",
+								"Generos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generos.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:49568/api/Generos/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49568",
+							"path": [
+								"api",
+								"Generos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generos/id/Filmes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:49568/api/Generos/5/filmes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49568",
+							"path": [
+								"api",
+								"Generos",
+								"5",
+								"filmes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generos/Nome/Buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:49568/api/Generos/ma/buscar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49568",
+							"path": [
+								"api",
+								"Generos",
+								"ma",
+								"buscar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Filmes",
+			"item": [
+				{
+					"name": "Filmes/{Nome}/buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "Filmes/{Nome}/buscar",
+							"host": [
+								"Filmes"
+							],
+							"path": [
+								"{Nome}",
+								"buscar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filmes.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"titulo\" : \"Guardioes\",\n\t\"generoid\" : \"5\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:49568/api/filmes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49568",
+							"path": [
+								"api",
+								"filmes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filmes.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:49568/api/filmes/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49568",
+							"path": [
+								"api",
+								"filmes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filmes.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:49568/api/filmes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49568",
+							"path": [
+								"api",
+								"filmes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ef6e1083-ff52-430d-b8b6-aec7715c6a1c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2502bd95-f1fe-4d04-a2cf-c80863f4c91d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

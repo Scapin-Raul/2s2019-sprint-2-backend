@@ -64,5 +64,22 @@ namespace Senai.Filmes.WebApi.Controllers
             return Ok();
         }
 
+        [HttpGet("{id}/filmes")]
+        public IActionResult FilmesDeGenero(int id)
+        {
+            List<FilmeDomain> filmes = generoRepository.FilmesDeGenero(id);
+
+            return Ok(filmes);
+        }
+
+        [HttpGet("{nome}/buscar")]
+        public IActionResult BuscarNome(string nome)
+        {
+            generos = generoRepository.BuscarNome(nome);
+
+            return Ok(generos);
+        }
+
+
     }
 }
