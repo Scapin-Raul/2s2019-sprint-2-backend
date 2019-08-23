@@ -1,0 +1,31 @@
+-----ConfigureServices-----
+
+
+services.AddMvc().SetCompatibilityVersion(
+                Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1",
+                new Swashbuckle.AspNetCore.Swagger.Info
+                {
+                    Title = "SStop API",
+                    Version = "v1"
+                });
+            });
+
+
+
+-----Configure-----
+
+if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            app.UseMvc();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });

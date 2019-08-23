@@ -1,0 +1,14 @@
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\obj\Debug\netcoreapp2.1\Senai.BookStore.csprojAssemblyReference.cache
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\obj\Debug\netcoreapp2.1\Senai.BookStore.csproj.CoreCompileInputs.cache
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\obj\Debug\netcoreapp2.1\Senai.BookStore.RazorAssemblyInfo.cache
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\obj\Debug\netcoreapp2.1\Senai.BookStore.RazorAssemblyInfo.cs
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\obj\Debug\netcoreapp2.1\Senai.BookStore.AssemblyInfoInputs.cache
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\obj\Debug\netcoreapp2.1\Senai.BookStore.AssemblyInfo.cs
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\bin\Debug\netcoreapp2.1\Senai.BookStore.deps.json
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\bin\Debug\netcoreapp2.1\Senai.BookStore.runtimeconfig.json
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\bin\Debug\netcoreapp2.1\Senai.BookStore.runtimeconfig.dev.json
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\bin\Debug\netcoreapp2.1\Senai.BookStore.dll
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\obj\Debug\netcoreapp2.1\Senai.BookStore.RazorTargetAssemblyInfo.cache
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\bin\Debug\netcoreapp2.1\Senai.BookStore.pdb
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\obj\Debug\netcoreapp2.1\Senai.BookStore.dll
+C:\Users\46791749865\Desktop\2s2019\2s2019-sprint-2-backend\Senai.BookStore\Senai.BookStore\obj\Debug\netcoreapp2.1\Senai.BookStore.pdb
