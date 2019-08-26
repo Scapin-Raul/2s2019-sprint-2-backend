@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "792d73b1-774a-4390-8f65-11a5531f158d",
+		"name": "Senai.Gufos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "Categorias/Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:58846/api/Categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "58846",
+							"path": [
+								"api",
+								"Categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias/{ID} -- Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:58846/api/Categorias/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "58846",
+							"path": [
+								"api",
+								"Categorias",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias/Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Passeata contra o bolsonaro\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:58846/api/Categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "58846",
+							"path": [
+								"api",
+								"Categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias/{ID}   --- Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:58846/api/Categorias/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "58846",
+							"path": [
+								"api",
+								"Categorias",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias/Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/javascript",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idcategoria\" : \"2\",\n\t\"nome\" : \"Futzada\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:58846/api/Categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "58846",
+							"path": [
+								"api",
+								"Categorias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Eventos",
+			"item": [
+				{
+					"name": "Eventos/Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:58846/api/Eventos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "58846",
+							"path": [
+								"api",
+								"Eventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos/Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"titulo\": \"Futzadakkkkk\",\r\n    \"descricao\": \"Chute na canela e doideira\",\r\n    \"dataEvento\": \"1999-08-07T18:30:00\",\r\n    \"localizacao\": \"Alameda Barão de Limeira, 139\",\r\n    \"ativo\": true,\r\n    \"idCategoria\": 3\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:58846/api/Eventos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "58846",
+							"path": [
+								"api",
+								"Eventos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
