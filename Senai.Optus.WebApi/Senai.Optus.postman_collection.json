@@ -11,6 +11,16 @@
 				{
 					"name": "Estilos/Listar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvbXVtQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQ09NVU0iLCJleHAiOjE1NjY5MTM4NzEsImlzcyI6Ik9wdHVzLldlYkFwaSIsImF1ZCI6Ik9wdHVzLldlYkFwaSJ9.NCgnOkOZvkFW3jgnbvq6T5p5kXf_dqKg-YmGYQkAPq0",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -29,8 +39,49 @@
 					"response": []
 				},
 				{
+					"name": "Estilos/{ID} ---Buscar por Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvbXVtQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQ09NVU0iLCJleHAiOjE1NjY5MTQxODMsImlzcyI6Ik9wdHVzLldlYkFwaSIsImF1ZCI6Ik9wdHVzLldlYkFwaSJ9.BydJO2IyVMNokEtqa6sOXQ5Rpy0k9Yziga6XZRU5RbI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:55430/api/Estilos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55430",
+							"path": [
+								"api",
+								"Estilos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Estilos/Cadastrar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvbXVtQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQ09NVU0iLCJleHAiOjE1NjY5MTM4NzEsImlzcyI6Ik9wdHVzLldlYkFwaSIsImF1ZCI6Ik9wdHVzLldlYkFwaSJ9.NCgnOkOZvkFW3jgnbvq6T5p5kXf_dqKg-YmGYQkAPq0",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -42,7 +93,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\" : \"Funk\"\n\t\n}"
+							"raw": "{\n\t\"nome\" : \"saddsdsadsa\"\n\t\n}"
 						},
 						"url": {
 							"raw": "http://localhost:55430/api/Estilos",
@@ -62,6 +113,16 @@
 				{
 					"name": "Estilos/Alterar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2NjkxNTI3NSwiaXNzIjoiT3B0dXMuV2ViQXBpIiwiYXVkIjoiT3B0dXMuV2ViQXBpIn0.Akt-aCut3jgaPsLrH_KAYye650DSTliEqNMTdeb0grg",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -73,7 +134,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"idEstilo\": 1,\n    \"nome\": \"Folk\"\n}"
+							"raw": "{\n\t\"idEstilo\": 6,\n    \"nome\": \"Eletrônica\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:55430/api/Estilos/",
@@ -154,6 +215,29 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Estilos/Buscar/{NOME}/Artistas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:55430/api/Estilos/buscar/folk/artistas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55430",
+							"path": [
+								"api",
+								"Estilos",
+								"buscar",
+								"folk",
+								"artistas"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -183,6 +267,16 @@
 				{
 					"name": "Artistas/Cadastrar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvbXVtQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQ09NVU0iLCJleHAiOjE1NjY5MTQxODMsImlzcyI6Ik9wdHVzLldlYkFwaSIsImF1ZCI6Ik9wdHVzLldlYkFwaSJ9.BydJO2IyVMNokEtqa6sOXQ5Rpy0k9Yziga6XZRU5RbI",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -194,7 +288,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\" : \"21 P\",\n\t\"idestilo\" : \"2\"\n}"
+							"raw": "{\n\t\"nome\" : \"22 P\",\n\t\"idestilo\" : \"2\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:55430/api/Artistas",
@@ -206,6 +300,68 @@
 							"path": [
 								"api",
 								"Artistas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Usuarios/Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"admin@email.com\",\n\t\"senha\" : \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:55430/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55430",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Admin/Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:55430/api/admin/dashboard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55430",
+							"path": [
+								"api",
+								"admin",
+								"dashboard"
 							]
 						}
 					},

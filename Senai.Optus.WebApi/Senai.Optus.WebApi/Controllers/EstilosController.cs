@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.Optus.WebApi.Domains;
@@ -16,14 +17,26 @@ namespace Senai.Optus.WebApi.Controllers
     {
         EstiloRepository estiloRepository = new EstiloRepository();
 
+        [Authorize]
         [HttpGet]
         public IActionResult Listar()
         {
             return Ok(estiloRepository.Listar());
         }
 
+
+        [Authorize]
+        [HttpGet("{id}")]
+        public IActionResult BuscarPorId(int id)
+        {
+            Estilos estilo = estiloRepository.BuscarPorId(id);
+            if (estilo == null) return NotFound("Estilo não encontrado ");
+            return Ok(estilo);    
+        }
+
+        [Authorize(Roles ="ADMINISTRADOR")]
         [HttpPost]
-        public IActionResult Cadastar(Estilos estilo)
+        public IActionResult Cadastrar(Estilos estilo)
         {
             try
             {
@@ -35,6 +48,7 @@ namespace Senai.Optus.WebApi.Controllers
             }
         }
 
+        [Authorize(Roles ="ADMINISTRADOR")]
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
         {
@@ -49,6 +63,7 @@ namespace Senai.Optus.WebApi.Controllers
             }
         }
 
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpPut]
         public IActionResult Alterar(Estilos estilo)
         {
@@ -68,24 +83,22 @@ namespace Senai.Optus.WebApi.Controllers
         {
             return Ok("O total de estilos é : "+estiloRepository.Listar().Count());
         }
-
+          
         [HttpGet("{id}/artistas")]
         public IActionResult BuscarArtista(int id)
         {
-            try
-            {
-                var a = estiloRepository.BuscarArtista(id);
-                return Ok(a);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest();
-            }
-
+            var a = estiloRepository.BuscarArtista(id);
+            if (a == null) return NotFound("Não há artistas de tal estilo ou não há nenhum estilo com este id");
+            return Ok(a);
         }
-
-
-
-
-}
+            
+        [HttpGet("buscar/{nome}/artistas")]
+        public IActionResult BuscarPeloNome(string nome)
+        {
+            var a = estiloRepository.BuscarPeloNome(nome);
+            if (a == null) return NotFound("Não há artistas de tal estilo ou não há nenhum estilo com este nome");
+            return Ok(a);
+        }
+        
+    }
 }

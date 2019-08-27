@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.Gufos.WebApi.Domains;
@@ -21,6 +22,7 @@ namespace Senai.Gufos.WebApi.Controllers
         /// 
         /// </summary>
         /// <returns>Lista todas categorias</returns>
+        [Authorize]
         [HttpGet]
         public IActionResult Listar()
         {
@@ -41,6 +43,8 @@ namespace Senai.Gufos.WebApi.Controllers
             }
         }
 
+
+        [Authorize (Roles = "Administrador")]
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
@@ -61,7 +65,7 @@ namespace Senai.Gufos.WebApi.Controllers
                 return Ok();
             }
             catch(Exception ex) {
-                return BadRequest("Registro não encontrado.");
+                return BadRequest("Registro não encontrado. \n"+ ex);
             }
         }
 
@@ -81,7 +85,7 @@ namespace Senai.Gufos.WebApi.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest(); 
+                return BadRequest(ex); 
             }
         }
 

@@ -23,9 +23,7 @@ namespace Senai.Optus.WebApi.Repository
             {
                 ctx.Estilos.Add(estilo);
                 ctx.SaveChanges();
-
             }
-
         }
 
         public void Deletar(int id)
@@ -35,6 +33,15 @@ namespace Senai.Optus.WebApi.Repository
                 var EstilosDeletar = ctx.Estilos.Find(id);
                 ctx.Estilos.Remove(EstilosDeletar);
                 ctx.SaveChanges();
+            }
+        }
+
+        public Estilos BuscarPorId(int id)
+        {
+            using(OptusContext ctx = new OptusContext())
+            {
+                return ctx.Estilos.Find(id);
+
             }
         }
 
@@ -49,12 +56,25 @@ namespace Senai.Optus.WebApi.Repository
             }
         }
 
-        public List<Estilos> BuscarArtista(int id)
+        public List<Artistas> BuscarArtista(int id)
         {
             using (OptusContext ctx = new OptusContext())
             {
-                return ctx.Artistas.Where(x => x.IdEstilo == id).ToList();
+                var artistas = ctx.Artistas.Where(x => x.IdEstilo == id).ToList();
+                if (artistas.Count == 0) return null;
+                return artistas;
             }
         }
+
+        public List<Artistas> BuscarPeloNome(string nome)
+        {
+            using (OptusContext ctx = new OptusContext())
+            {
+                var artistas = ctx.Artistas.Where(x => x.IdEstiloNavigation.Nome.ToLower() == nome.ToLower()).ToList();
+                if (artistas.Count == 0) return null;
+                return artistas;
+            }
+        }
+
     }
 }

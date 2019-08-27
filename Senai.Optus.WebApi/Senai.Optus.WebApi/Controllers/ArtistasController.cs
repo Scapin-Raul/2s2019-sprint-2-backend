@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.Optus.WebApi.Domains;
@@ -22,6 +23,7 @@ namespace Senai.Optus.WebApi.Controllers
             return Ok(artistaRepository.Listar());
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Cadastrar(Artistas artista)
         {
@@ -34,9 +36,7 @@ namespace Senai.Optus.WebApi.Controllers
             {
                 return BadRequest();
             }
-
-
-
         }
+
     }
 }

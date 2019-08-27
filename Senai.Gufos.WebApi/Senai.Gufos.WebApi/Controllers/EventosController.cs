@@ -32,7 +32,7 @@ namespace Senai.Gufos.WebApi.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex);
             }
 
         }
