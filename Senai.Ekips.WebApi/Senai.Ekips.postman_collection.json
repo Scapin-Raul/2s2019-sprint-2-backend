@@ -1,0 +1,420 @@
+{
+	"info": {
+		"_postman_id": "45d59ecd-c038-4cbd-abf3-48b2640e89e6",
+		"name": "Senai.Ekips",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Funcionarios",
+			"item": [
+				{
+					"name": "Funcionarios/Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvYkBlbWFpbC5jb20iLCJqdGkiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQ09NVU0iLCJleHAiOjE1NjcwMDQyNTcsImlzcyI6IkVraXBzLldlYkFwaSIsImF1ZCI6IkVraXBzLldlYkFwaSJ9.5MOCldtuQgfSNxnS_mikQ9t-fpm5BlaXu-z1JbwOJy0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60664/api/Funcionarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Funcionarios/Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"Cleiton\",\r\n        \"cpf\": 333333,\r\n        \"dataNascimento\": \"1985-03-20\",\r\n        \"salario\": 1500,\r\n        \"iddepartamento\": 1,\r\n        \"idcargo\": 1\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:60664/api/Funcionarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Funcionarios/Alterar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwiZXhwIjoxNTY3MDAwNTIyLCJpc3MiOiJFa2lwcy5XZWJBcGkiLCJhdWQiOiJFa2lwcy5XZWJBcGkifQ.YxHKM2JfgEHjgnIW49yJ-A30a2Ihlhy8x3DuvLRZdAE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Cleitinho\",\r\n    \"salario\": 1600,\r\n    \"idDepartamento\": 2,\r\n    \"idCargo\": 1,\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:60664/api/Funcionarios/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Funcionarios",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Funcionarios/Deletar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwiZXhwIjoxNTY3MDAwNTIyLCJpc3MiOiJFa2lwcy5XZWJBcGkiLCJhdWQiOiJFa2lwcy5XZWJBcGkifQ.YxHKM2JfgEHjgnIW49yJ-A30a2Ihlhy8x3DuvLRZdAE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60664/api/Funcionarios/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Funcionarios",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Departamentos",
+			"item": [
+				{
+					"name": "Departamentos/Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwiZXhwIjoxNTY3MDAwNTIyLCJpc3MiOiJFa2lwcy5XZWJBcGkiLCJhdWQiOiJFa2lwcy5XZWJBcGkifQ.YxHKM2JfgEHjgnIW49yJ-A30a2Ihlhy8x3DuvLRZdAE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60664/api/Departamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Departamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Departamentos/Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"........\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:60664/api/Departamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Departamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Departamentos/Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"iddepartamento\":\"3\",\n\t\"nome\": \"Segurança\"\n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:60664/api/Departamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Departamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Departamentos/Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60664/api/Departamentos/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Departamentos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cargos",
+			"item": [
+				{
+					"name": "Cargos/Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwiZXhwIjoxNTY3MDAwNTIyLCJpc3MiOiJFa2lwcy5XZWJBcGkiLCJhdWQiOiJFa2lwcy5XZWJBcGkifQ.YxHKM2JfgEHjgnIW49yJ-A30a2Ihlhy8x3DuvLRZdAE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60664/api/Cargos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Cargos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cargos/Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60664/api/Cargos/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Cargos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cargos/Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idcargo\": \"3\",\r\n\t\"nome\": \"Segurança\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:60664/api/Cargos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Cargos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cargos/Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nome\": \"Segurança bombadao\",\r\n    \"ativo\": true,\r\n\t\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:60664/api/Cargos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Cargos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Usuarios/Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"bob@email.com\",\n\t\"senha\" : \"123456\"\n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:60664/api/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60664",
+							"path": [
+								"api",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

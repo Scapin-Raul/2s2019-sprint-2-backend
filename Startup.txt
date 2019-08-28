@@ -1,8 +1,33 @@
 -----ConfigureServices-----
 
 
-services.AddMvc().SetCompatibilityVersion(
+services.AddMvc()
+                .AddJsonOptions
+                (
+                options => {
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                })
+                .SetCompatibilityVersion(
                 Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = "JwtBearer";
+                options.DefaultChallengeScheme = "JwtBearer";
+            }).AddJwtBearer("JwtBearer", options =>
+            {
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("chave-autenticacao")),
+                    ClockSkew = TimeSpan.FromMinutes(30),
+                    ValidIssuer = "******.WebApi",
+                    ValidAudience = "******.WebApi"
+                };
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -18,12 +43,13 @@ services.AddMvc().SetCompatibilityVersion(
 
 -----Configure-----
 
-if (env.IsDevelopment())
+app.UseAuthentication();
+
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             app.UseMvc();
-
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
