@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "3a43b0fd-8970-44ae-80cd-ea852c99b5cc",
+		"name": "AutoPecas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"qisso@email.com\",\n\t\"senha\" : \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:50521/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50521",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pecas",
+			"item": [
+				{
+					"name": "Pecas/Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFpc3NvQGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIyIiwiZXhwIjoxNTY3MTc0OTM5LCJpc3MiOiJBdXRvUGVjYXMuV2ViQXBpIiwiYXVkIjoiQXV0b1BlY2FzLldlYkFwaSJ9.lsBdyU3iCz-dP0UtaqkZOUcZ_iKtOhk8rCdVx3CEbAI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Codigo\":\"Peça da boa\",\n\t\"Descricao\":\"Qualidade top do bom!\",\n\t\"Peso\":\"232\",\n\t\"PrecoCusto\":\"700\", \n\t\"PrecoVenda\":\"900\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:50521/api/pecas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50521",
+							"path": [
+								"api",
+								"pecas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pecas/Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFpc3NvQGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIyIiwiZXhwIjoxNTY3MTc2MTgwLCJpc3MiOiJBdXRvUGVjYXMuV2ViQXBpIiwiYXVkIjoiQXV0b1BlY2FzLldlYkFwaSJ9.E2ZkLg-seZmYKQbnVuBsa7er3ENz9W9rsCJE_0Fb7pk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:50521/api/pecas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50521",
+							"path": [
+								"api",
+								"pecas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pecas/Alterar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFpc3NvQGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIyIiwiZXhwIjoxNTY3MTc2MTgwLCJpc3MiOiJBdXRvUGVjYXMuV2ViQXBpIiwiYXVkIjoiQXV0b1BlY2FzLldlYkFwaSJ9.E2ZkLg-seZmYKQbnVuBsa7er3ENz9W9rsCJE_0Fb7pk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:50521/api/pecas/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50521",
+							"path": [
+								"api",
+								"pecas",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pecas/BuscarPorId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFpc3NvQGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIyIiwiZXhwIjoxNTY3MTc2MTgwLCJpc3MiOiJBdXRvUGVjYXMuV2ViQXBpIiwiYXVkIjoiQXV0b1BlY2FzLldlYkFwaSJ9.E2ZkLg-seZmYKQbnVuBsa7er3ENz9W9rsCJE_0Fb7pk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Codigo\":\"Peça da boa\",\n\t\"Descricao\":\"Qualidade top do bom!\",\n\t\"Peso\":\"232\",\n\t\"PrecoCusto\":\"700\", \n\t\"PrecoVenda\":\"900\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:50521/api/pecas/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50521",
+							"path": [
+								"api",
+								"pecas",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

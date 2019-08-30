@@ -47,5 +47,15 @@ namespace Senai.Ekips.WebApi.Repositories
             }
         }
 
+        public Cargos BuscarPorId(int id)
+        {
+            using (EkipsContext ctx = new EkipsContext())
+            {
+                var cargo = ctx.Cargos.FirstOrDefault(x => x.IdCargo == id);
+                return cargo;
+            }
+        }
+
+
     }
 }

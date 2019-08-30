@@ -16,7 +16,15 @@ namespace Senai.Ekips.WebApi.Repositories
             {
                 return ctx.Usuarios.FirstOrDefault(x => x.Email == usuario.Email && x.Senha == usuario.Senha);
             }
+        }
 
+        public Usuarios BuscarPorId(int id)
+        {
+            using (EkipsContext ctx = new EkipsContext())
+            {
+                var usuario = ctx.Usuarios.FirstOrDefault(x => x.IdUsuario == id);
+                return usuario;
+            }
         }
     }
 }
