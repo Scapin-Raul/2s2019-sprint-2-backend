@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\" : \"qisso@email.com\",\n\t\"senha\" : \"123456\"\n}"
+							"raw": "{\n\t\"email\" : \"comum@email.com\",\n\t\"senha\" : \"123456\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:50521/api/login",
@@ -34,6 +34,26 @@
 							"path": [
 								"api",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios/Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:50521/api/Usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50521",
+							"path": [
+								"api",
+								"Usuarios"
 							]
 						}
 					},
@@ -52,7 +72,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFpc3NvQGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIyIiwiZXhwIjoxNTY3MTc0OTM5LCJpc3MiOiJBdXRvUGVjYXMuV2ViQXBpIiwiYXVkIjoiQXV0b1BlY2FzLldlYkFwaSJ9.lsBdyU3iCz-dP0UtaqkZOUcZ_iKtOhk8rCdVx3CEbAI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvbXVtQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNTY3NjAzNTI2LCJpc3MiOiJBdXRvUGVjYXMuV2ViQXBpIiwiYXVkIjoiQXV0b1BlY2FzLldlYkFwaSJ9.lR0tidefY77ST2724TelIMCbiovXp3ZbqzDntjr44KE",
 									"type": "string"
 								}
 							]
@@ -68,7 +88,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Codigo\":\"Peça da boa\",\n\t\"Descricao\":\"Qualidade top do bom!\",\n\t\"Peso\":\"232\",\n\t\"PrecoCusto\":\"700\", \n\t\"PrecoVenda\":\"900\"\n}"
+							"raw": "{\n\t\"Codigo\":\"Teste\",\n\t\"Descricao\":\"teste\",\n\t\"Peso\":\"1010\",\n\t\"PrecoCusto\":\"1010\", \n\t\"PrecoVenda\":\"1100\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:50521/api/pecas",
@@ -93,7 +113,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFpc3NvQGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIyIiwiZXhwIjoxNTY3MTc2MTgwLCJpc3MiOiJBdXRvUGVjYXMuV2ViQXBpIiwiYXVkIjoiQXV0b1BlY2FzLldlYkFwaSJ9.E2ZkLg-seZmYKQbnVuBsa7er3ENz9W9rsCJE_0Fb7pk",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvbXVtQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNTY3NjA3MTU3LCJpc3MiOiJBdXRvUGVjYXMuV2ViQXBpIiwiYXVkIjoiQXV0b1BlY2FzLldlYkFwaSJ9.Q2JpXiw4QbC0DB0dDtNDqBLupUZYGTVcWI3uxfMzN1w",
 									"type": "string"
 								}
 							]
@@ -186,6 +206,75 @@
 								"api",
 								"pecas",
 								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pecas/Calcular/{QNTD}/{IDPECA}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:50521/api/pecas/calcular/1/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50521",
+							"path": [
+								"api",
+								"pecas",
+								"calcular",
+								"1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pecas/Precos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:50521/api/pecas/precos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50521",
+							"path": [
+								"api",
+								"pecas",
+								"precos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fornecedores",
+			"item": [
+				{
+					"name": "Fornecedores/Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:50521/api/fornecedores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50521",
+							"path": [
+								"api",
+								"fornecedores"
 							]
 						}
 					},

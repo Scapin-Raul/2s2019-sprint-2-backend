@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.AutoPecas.WebApi.Domains;
+using Senai.AutoPecas.WebApi.Interfaces;
 using Senai.AutoPecas.WebApi.Repositories;
 
 namespace Senai.AutoPecas.WebApi.Controllers
@@ -17,7 +18,12 @@ namespace Senai.AutoPecas.WebApi.Controllers
     [ApiController]
     public class PecasController : ControllerBase
     {
-        PecasRepository pecasRepository = new PecasRepository();
+        public IPecasRepository PecasRepository { get; set; }
+
+        public PecasController()
+        {
+            PecasRepository = new PecasRepository();
+        }
 
         [Authorize]
         [HttpPost]
@@ -28,12 +34,12 @@ namespace Senai.AutoPecas.WebApi.Controllers
 
             try
             {
-                pecasRepository.Cadastrar(pecas);
+                PecasRepository.Cadastrar(pecas);
                 return Ok();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(new { mensagem = ex });
             }
         }
 
@@ -43,7 +49,7 @@ namespace Senai.AutoPecas.WebApi.Controllers
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
             var idFornecedor = Convert.ToInt32(identity.FindFirst(ClaimTypes.Role).Value);
-            return Ok(pecasRepository.ListarPorId(idFornecedor));
+            return Ok(PecasRepository.ListarPorId(idFornecedor));
         }
 
 
@@ -56,7 +62,7 @@ namespace Senai.AutoPecas.WebApi.Controllers
 
             try
             {
-                var pecaRecuperada = pecasRepository.BuscarPorId(idPeca,idFornecedor);
+                var pecaRecuperada = PecasRepository.BuscarPorId(idPeca, idFornecedor);
                 return Ok(pecaRecuperada);
             }
             catch (Exception)
@@ -75,7 +81,7 @@ namespace Senai.AutoPecas.WebApi.Controllers
 
             try
             {
-                pecasRepository.Alterar(peca,idFornecedor);
+                PecasRepository.Alterar(peca, idFornecedor);
                 return Ok();
             }
             catch (Exception)
@@ -83,12 +89,25 @@ namespace Senai.AutoPecas.WebApi.Controllers
                 return BadRequest();
                 throw;
             }
-
-
         }
 
 
 
+        [HttpGet("calcular/{qtd}/{idpeca}")]
+        public IActionResult Calcular(int qtd, int idpeca)
+        {
+            var preco =PecasRepository.Calcular(qtd, idpeca);
+            if (preco == -1) return BadRequest(new { mensagem = "Peça não existente."});
+            return Ok(new { preco = preco });
+        }
+
+
+
+        [HttpGet("precos")]
+        public IActionResult Precos()
+        {
+            return Ok(PecasRepository.Precos());
+        }
 
 
 

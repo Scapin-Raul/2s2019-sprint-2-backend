@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Senai.AutoPecas.WebApi.Domains;
+using Senai.AutoPecas.WebApi.Interfaces;
 using Senai.AutoPecas.WebApi.Repositories;
 
 namespace Senai.AutoPecas.WebApi.Controllers
@@ -17,19 +18,26 @@ namespace Senai.AutoPecas.WebApi.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        UsuarioRepository usuarioRepository = new UsuarioRepository();
-        FornecedorRepository fornecedorRepository = new FornecedorRepository();
+
+        public IUsuarioRepository UsuarioRepository { get; set; }
+        public IFornecedorRepository FornecedorRepository { get; set; }
+
+        public LoginController()
+        {
+            UsuarioRepository = new  UsuarioRepository();
+            FornecedorRepository = new FornecedorRepository();
+        }
 
         [HttpPost]
         public IActionResult Login(Usuarios login)
         {
             try
             {
-                Usuarios Usuario = usuarioRepository.BuscarPorEmailESenha(login);
+                Usuarios Usuario =  UsuarioRepository.BuscarPorEmailESenha(login);
                 if (Usuario == null)
                     return NotFound(new { mensagem = "Email ou senha inválidos." });
 
-                var Fornecedor = fornecedorRepository.BuscarPorUser(Usuario.IdUsuario);
+                var Fornecedor = FornecedorRepository.BuscarPorUser(Usuario.IdUsuario);
 
                 var claims = new[]
                 {
@@ -37,7 +45,7 @@ namespace Senai.AutoPecas.WebApi.Controllers
                     new Claim(JwtRegisteredClaimNames.Email, Usuario.Email),
                     // id
                     new Claim(JwtRegisteredClaimNames.Jti, Usuario.IdUsuario.ToString()),
-                    // é a permissão do usuário
+                    // id do fornecedor >:D
                     new Claim(ClaimTypes.Role, Fornecedor.IdFornecedor.ToString()),
                 };
 
@@ -52,8 +60,6 @@ namespace Senai.AutoPecas.WebApi.Controllers
                     expires: DateTime.Now.AddMinutes(30),
                     signingCredentials: creds);
 
-                // gerar a chave pra vocês
-                // return Ok(new { mensagem = "Sucesso, bro." });
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token)

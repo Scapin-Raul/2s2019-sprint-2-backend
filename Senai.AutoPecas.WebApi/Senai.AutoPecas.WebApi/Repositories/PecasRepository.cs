@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Senai.AutoPecas.WebApi.Controllers;
 using Senai.AutoPecas.WebApi.Domains;
+using Senai.AutoPecas.WebApi.Interfaces;
+using Senai.AutoPecas.WebApi.ViewModels;
 
 namespace Senai.AutoPecas.WebApi.Repositories
 {
-    public class PecasRepository
+    public class PecasRepository: IPecasRepository
     {
         public void Cadastrar(Pecas pecas)
         {
@@ -24,11 +26,8 @@ namespace Senai.AutoPecas.WebApi.Repositories
             {
                 return ctx.Pecas.Where(x => x.IdFornecedor == idFornecedor).ToList();
             }
-
-
-
         }
-
+        
         public Pecas BuscarPorId(int idPeca, int idFornecedor)
         {
             using(AutoPecasContext ctx= new AutoPecasContext())
@@ -39,9 +38,7 @@ namespace Senai.AutoPecas.WebApi.Repositories
                     return pecaRecuperada;
                 }
                 return null;
-
             }
-
         }
 
         public void Alterar(Pecas peca,int idFornecedor)
@@ -62,7 +59,37 @@ namespace Senai.AutoPecas.WebApi.Repositories
             }
         }
 
+        public int Calcular(int quantidade, int idPeca)
+        {
+            using(AutoPecasContext ctx = new AutoPecasContext())
+            {
+                Pecas Peca = ctx.Pecas.Find(idPeca);
+                if (Peca == null) return -1;
+                return (Convert.ToInt32(Peca.PrecoVenda) * quantidade);
+            }
+        }
 
+        public List<PrecoViewModel> Precos()
+        {
+            using(AutoPecasContext ctx = new AutoPecasContext())
+            {
+                var listaDePecas = ctx.Pecas.ToList();
+                List<PrecoViewModel> precoViewModel = new List<PrecoViewModel>();
+
+                foreach (var item in listaDePecas)
+                {
+                    PrecoViewModel preco = new PrecoViewModel();
+                    preco.PrecoVenda = Convert.ToInt32(item.PrecoVenda);
+                    preco.PrecoCusto = Convert.ToInt32(item.PrecoCusto);
+                    preco.Diferenca = Convert.ToInt32(item.PrecoVenda - item.PrecoCusto);
+                    preco.Porcentagem = 100 -Convert.ToDouble(item.PrecoCusto * 100/ item.PrecoVenda);
+                    precoViewModel.Add(preco);
+                }
+                return precoViewModel;
+            }
+
+
+        }
 
     }
 }
